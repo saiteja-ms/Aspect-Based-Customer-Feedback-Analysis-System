@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+mlruns/
+dvc.lock
+.dvc/
+*.egg-info
+data/
+models/
+checkpoints/
+*.sqlite3

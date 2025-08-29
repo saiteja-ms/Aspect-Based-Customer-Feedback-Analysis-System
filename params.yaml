@@ -1,0 +1,20 @@
+data:
+  raw_path: data/raw
+  processed_path: data/processed
+  events_file: data/raw/events.csv
+
+train:
+  collab:
+    n_factors: 64
+    reg: 0.01
+    epochs: 10
+  ranker:
+    n_estimators: 200
+    learning_rate: 0.05
+    max_depth: 6
+    test_size: 0.2
+
+serve:
+  host: 0.0.0.0
+  port: 8080
+  model_path: models/current

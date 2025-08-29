@@ -1,0 +1,35 @@
+stages:
+  data_prep:
+    cmd: python src/data/data_prep.py --input ${data.raw_path} --output ${data.processed_path}
+    deps:
+      - src/data/data_prep.py
+      - ${data.raw_path}
+    outs:
+      - ${data.processed_path}
+
+  train_collab:
+    cmd: python src/train/train_collab.py --data ${data.processed_path} --out models/collab
+    deps:
+      - src/train/train_collab.py
+      - src/models/collab_matrix.py
+      - ${data.processed_path}
+    outs:
+      - models/collab
+
+  train_ranker:
+    cmd: python src/train/train_ranker.py --data ${data.processed_path} --collab models/collab --out models/ranker
+    deps:
+      - src/train/train_ranker.py
+      - src/models/ranker.py
+      - models/collab
+    outs:
+      - models/ranker
+
+  evaluate:
+    cmd: python src/evaluate/evaluate.py --data ${data.processed_path} --collab models/collab --ranker models/ranker --out reports/eval.json
+    deps:
+      - src/evaluate/evaluate.py
+      - models/collab
+      - models/ranker
+    outs:
+      - reports/eval.json
