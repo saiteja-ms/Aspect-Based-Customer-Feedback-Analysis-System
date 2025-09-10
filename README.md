@@ -1,16 +1,11 @@
-# NextPick — Real-time Recommendation Engine (DA5402 MLOps Project)
+# Aspect based Customer Feedback Analysis System
 
 **Duration:** Mar 2025 – May 2025  
 **Team Project:** DA5402  
-
-NextPick is a **real-time recommendation system** built with collaborative filtering and a ranking model, deployed with full **MLOps** best practices. It provides **personalized recommendations**, **model versioning**, **drift detection**, and **monitoring** with a containerized, production-ready stack.
-
 ---
 
 ## ✨ Features
-- **Recommendation Engine**
-  - Candidate generation with **matrix factorization (collaborative filtering)**
-  - Reranking with **LightGBM ranking model**
+- **Feature-level classification and multi-class modeling**
 - **MLOps Pipeline**
   - **DVC** for dataset & model versioning
   - **MLflow** for experiment tracking and artifact logging
